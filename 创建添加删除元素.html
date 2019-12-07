@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <ul>
+        <li>原来的li</li>
+    </ul>
+    <div class="test">div标签</div>
+    <script>
+        $(function(){
+            // 创建元素
+            var li = $('<li>后来创建的li标签</li>')
+            // 添加元素
+            // 内部添加
+            
+            $('ul').append(li)
+            $('ul').prepend(li)
+            // 外部添加
+            var div = $('<div>后来的div</div>')
+            $('.test').after(div)
+            $('.test').before(div)
+            // 删除元素
+            //$('ul').remove()
+            $('ul').empty()
+            $('ul').html()
+        })    
+    </script>
+</body>
+</html>

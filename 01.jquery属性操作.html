@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+
+<body>
+    <a href="www.biying.com" title="必应网点">必应</a>
+    <input type="checkbox" name="" id="" checked>
+    <div index='1' data-index="3"></div>
+    <span>123</span>
+    <script>
+        $(function() {
+            console.log($('a').prop('href'))
+            $('a').prop('title', '必应11')
+            $('input').change(function() {
+                console.log($(this).prop('checked'))
+            })
+            console.log( $('div').attr('index'))
+            console.log( $('div').attr('data-index'))
+            $('span').data('uname','andy')
+            console.log( $('span').data('uname'))
+            console.log( $('div').data('index'))
+
+        })
+    </script>
+</body>
+
+</html>
