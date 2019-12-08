@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Hello React!</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+
+<!-- Props验证 -->
+<script src="https://cdn.bootcss.com/prop-types/15.6.1/prop-types.js"></script>
+</head>
+<body>
+ 
+<div id="example"></div>
+
+<!-- var myDivElement = <div className="foo" />; -->
+
+<script type="text/babel">
+// 将元素渲染到DOM种
+// const element = <h1>Hello, world!</h1>;
+// ReactDOM.render(
+//     element,
+//     document.getElementById('example')
+// );
+
+// 更新元素渲染，三种方式----------------------------方式一
+// function tick() {
+//   const element = (
+//     <div>
+//       <h1>Hello, world!</h1>
+//       <h2>现在是 {new Date().toLocaleTimeString()}.</h2>
+//     </div>
+//   );
+//   ReactDOM.render(
+//     element,
+//     document.getElementById('example')
+//   );
+// }
+ 
+// setInterval(tick, 1000);
+// --------------------------------------------------------方式二
+// class Clock extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <h2>现在是 {this.props.date.toLocaleTimeString()}.</h2>
+//       </div>
+//     );
+//   }
+// }
+
+// function tick() {
+//   ReactDOM.render(
+//     <Clock date={new Date()} />,
+//     document.getElementById('example')
+//   );
+// }
+ 
+// setInterval(tick, 1000);
+ // --------------------------------------------------------方式三
+
+//  function Clock(props) {
+//   return (
+//     <div>
+//       <h1>Hello, world!</h1>
+//       <h2>现在是 {props.date.toLocaleTimeString()}.</h2>
+//     </div>
+//   );
+// }
+ 
+// function tick() {
+//   ReactDOM.render(
+//     <Clock date={new Date()} />,
+//     document.getElementById('example')
+//   );
+// }
+ 
+// setInterval(tick, 1000);
+
+
+// ReactDOM.render(myDivElement, document.getElementById('example'));
+// ReactDOM.render(
+//     <div>
+//       <h1>{1+1}</h1>
+//     </div>
+//     ,
+//     document.getElementById('example')
+// );
+// var i = 1
+// ReactDOM.render(
+//     <div>
+//       <h1>{i == 1 ? 'True!' : 'False'}</h1>
+//     </div>
+//     ,
+//     document.getElementById('example')
+// );
+// var myStyle = {
+//     fontSize: 100,
+//     color: '#FF0000'
+// };
+// ReactDOM.render(
+//     <h1 style = {myStyle}>菜鸟教程</h1>,
+//     document.getElementById('example')
+//     {/**/}
+// );
+// var arr = [
+//   <h1>菜鸟教程</h1>,
+//   <h2>学的不仅是技术，更是梦想！</h2>,
+// ];
+// ReactDOM.render(
+//   <div>{arr}</div>,
+//   document.getElementById('example')
+// );
+
+
+// function Name(props) {
+//     return <h1>网站名称：{props.name}</h1>;
+// }
+// function Url(props) {
+//     return <h1>网站地址：{props.url}</h1>;
+// }
+// function Nickname(props) {
+//     return <h1>网站小名：{props.nickname}</h1>;
+// }
+// function App() {
+//     return (
+//     <div>
+//         <Name name="菜鸟教程" />
+//         <Url url="http://www.runoob.com" />
+//         <Nickname nickname="Runoob" />
+//     </div>
+//     );
+// }
+ 
+// ReactDOM.render(
+//      <App />,
+//     document.getElementById('example')
+// );
+
+
+// function HelloMessage(props) {
+//     return <h1>Hello {props.name}!</h1>;
+// }
+ 
+// const element = <HelloMessage name="Runoob"/>;
+ 
+// ReactDOM.render(
+//     element,
+//     document.getElementById('example')
+// );
+
+
+// class Clock extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {date: new Date()};
+//   }
+ 
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
+//       </div>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <Clock />,
+//   document.getElementById('example')
+// );
+
+// class Clock extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {date: new Date()};
+//   }
+ 
+//   componentDidMount() {
+//     this.timerID = setInterval(
+//       () => this.tick(),
+//       1000
+//     );
+//   }
+ 
+//   componentWillUnmount() {
+//     clearInterval(this.timerID);
+//   }
+ 
+//   tick() {
+//     this.setState({
+//       date: new Date()
+//     });
+//   }
+ 
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <h2>现在是 {this.state.date.toLocaleTimeString()}.</h2>
+//       </div>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <Clock />,
+//   document.getElementById('example')
+// );
+
+
+// function FormattedDate(props) {
+//   return <h2>现在是 {props.date.toLocaleTimeString()}.</h2>;
+// }
+ 
+// class Clock extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {date: new Date()};
+//   }
+ 
+//   componentDidMount() {
+//     this.timerID = setInterval(
+//       () => this.tick(),
+//       1000
+//     );
+//   }
+ 
+//   componentWillUnmount() {
+//     clearInterval(this.timerID);
+//   }
+ 
+//   tick() {
+//     this.setState({
+//       date: new Date()
+//     });
+//   }
+ 
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <FormattedDate date={this.state.date} />
+//       </div>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <Clock />,
+//   document.getElementById('example')
+// );
+
+// function FormattedDate(props) {
+//   return <h2>现在是 {props.date.toLocaleTimeString()}.</h2>;
+// }
+ 
+// class Clock extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {date: new Date()};
+//   }
+ 
+//   componentDidMount() {
+//     this.timerID = setInterval(
+//       () => this.tick(),
+//       1000
+//     );
+//   }
+ 
+//   componentWillUnmount() {
+//     clearInterval(this.timerID);
+//   }
+ 
+//   tick() {
+//     this.setState({
+//       date: new Date()
+//     });
+//   }
+ 
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <FormattedDate date={this.state.date} />
+//       </div>
+//     );
+//   }
+// }
+ 
+// function App() {
+//   return (
+//     <div>
+//       <Clock />
+//       <Clock />
+//       <Clock />
+//     </div>
+//   );
+// }
+ 
+// ReactDOM.render(<App />, document.getElementById('example'));
+
+// class HelloMessage extends React.Component {
+//   render() {
+//     return (
+//       <h1>Hello, {this.props.name}</h1>
+//     );
+//   }
+// }
+ 
+// HelloMessage.defaultProps = {
+//   name: 'Runoob'
+// };
+ 
+// const element = <HelloMessage/>;
+ 
+// ReactDOM.render(
+//   element,
+//   document.getElementById('example')
+// );
+
+
+// class WebSite extends React.Component {
+//   constructor() {
+//       super();
+ 
+//       this.state = {
+//         name: "菜鸟教程",
+//         site: "https://www.runoob.com"
+//       }
+//     }
+//   render() {
+//     return (
+//       <div>
+//         <Name name={this.state.name} />
+//         <Link site={this.state.site} />
+//       </div>
+//     );
+//   }
+// }
+ 
+ 
+ 
+// class Name extends React.Component {
+//   render() {
+//     return (
+//       <h1>{this.props.name}</h1>
+//     );
+//   }
+// }
+ 
+// class Link extends React.Component {
+//   render() {
+//     return (
+//       <a href={this.props.site}>
+//         {this.props.site}
+//       </a>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <WebSite />,
+//   document.getElementById('example')
+// );
+
+// var title = "菜鸟教程";
+// // var title = 123;
+// class MyTitle extends React.Component {
+//   render() {
+//     return (
+//       <h1>Hello, {this.props.title}</h1>
+//     );
+//   }
+// }
+ 
+// MyTitle.propTypes = {
+//   title: PropTypes.string
+// };
+// ReactDOM.render(
+//     <MyTitle title={title} />,
+//     document.getElementById('example')
+// );
+
+// class Toggle extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {isToggleOn: true};
+ 
+//     // 这边绑定是必要的，这样 `this` 才能在回调函数中使用
+//     this.handleClick = this.handleClick.bind(this);
+//   }
+ 
+//   handleClick() {
+//     this.setState(prevState => ({
+//       isToggleOn: !prevState.isToggleOn
+//     }));
+//   }
+ 
+//   render() {
+//     return (
+//       <button onClick={this.handleClick}>
+//         {this.state.isToggleOn ? 'ON' : 'OFF'}
+//       </button>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <Toggle />,
+//   document.getElementById('example')
+// );
+
+// function UserGreeting(props) {
+//   return <h1>欢迎回来!</h1>;
+// }
+
+// function GuestGreeting(props) {
+//   return <h1>请先注册。</h1>;
+// }
+
+// function Greeting(props) {
+//   const isLoggedIn = props.isLoggedIn;
+//   if (isLoggedIn) {
+//     return <UserGreeting />;
+//   }
+//   return <GuestGreeting />;
+// }
+ 
+// ReactDOM.render(
+//   // 尝试修改 isLoggedIn={true}:
+//   <Greeting isLoggedIn={true} />,
+//   document.getElementById('example')
+// );
+
+
+// class LoginControl extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.handleLoginClick = this.handleLoginClick.bind(this);
+//     this.handleLogoutClick = this.handleLogoutClick.bind(this);
+//     this.state = {isLoggedIn: false};
+//   }
+ 
+//   handleLoginClick() {
+//     this.setState({isLoggedIn: true});
+//   }
+ 
+//   handleLogoutClick() {
+//     this.setState({isLoggedIn: false});
+//   }
+ 
+//   render() {
+//     const isLoggedIn = this.state.isLoggedIn;
+ 
+//     let button = null;
+//     if (isLoggedIn) {
+//       button = <LogoutButton onClick={this.handleLogoutClick} />;
+//     } else {
+//       button = <LoginButton onClick={this.handleLoginClick} />;
+//     }
+ 
+//     return (
+//       <div>
+//         <Greeting isLoggedIn={isLoggedIn} />
+//         {button}
+//       </div>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <LoginControl />,
+//   document.getElementById('example')
+// );
+
+
+// function WarningBanner(props) {
+//   if (!props.warn) {
+//     return null;
+//   }
+ 
+//   return (
+//     <div className="warning">
+//       警告!
+//     </div>
+//   );
+// }
+ 
+// class Page extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {showWarning: true}
+//     this.handleToggleClick = this.handleToggleClick.bind(this);
+//   }
+ 
+//   handleToggleClick() {
+//     this.setState(prevState => ({
+//       showWarning: !prevState.showWarning
+//     }));
+//   }
+ 
+//   render() {
+//     return (
+//       <div>
+//         <WarningBanner warn={this.state.showWarning} />
+//         <button onClick={this.handleToggleClick}>
+//           {this.state.showWarning ? '隐藏' : '显示'}
+//         </button>
+//       </div>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <Page />,
+//   document.getElementById('example')
+// );
+
+// const numbers = [1, 2, 3, 4, 5];
+// const listItems = numbers.map((numbers) =>
+//   <li>{numbers}</li>
+// );
+ 
+// ReactDOM.render(
+//   <ul>{listItems}</ul>,
+//   document.getElementById('example')
+// );
+
+
+
+// function NumberList(props) {
+//   const numbers = props.numbers;
+//   const listItems = numbers.map((number) =>
+//     <li key={number.toString()}>
+//       {number}
+//     </li>
+//   );
+//   return (
+//     <ul>{listItems}</ul>
+//   );
+// }
+ 
+// const numbers = [1, 2, 3, 4, 5];
+// ReactDOM.render(
+//   <NumberList numbers={numbers} />,
+//   document.getElementById('example')
+// );
+
+
+// class Counter extends React.Component{
+//   constructor(props) {
+//       super(props);
+//       this.state = {clickCount: 0};
+//       this.handleClick = this.handleClick.bind(this);
+//   }
+  
+//   handleClick() {
+//     this.setState(function(state) {
+//       return {clickCount: state.clickCount + 1};
+//     });
+//   }
+//   render () {
+//     return (<h2 onClick={this.handleClick}>点我！点击次数为: {this.state.clickCount}</h2>);
+//   }
+// }
+// ReactDOM.render(
+//   <Counter />,
+//   document.getElementById('example')
+// );
+
+
+
+// class MyComponent extends React.Component {
+//   handleClick() {
+//     // 使用原生的 DOM API 获取焦点
+//     this.refs.myInput.focus();
+//   }
+//   render() {
+//     //  当组件插入到 DOM 后，ref 属性添加一个组件的引用于到 this.refs
+//     return (
+//       <div>
+//         <input type="text" ref="myInput" />
+//         <input
+//           type="button"
+//           value="点我输入框获取焦点"
+//           onClick={this.handleClick.bind(this)}
+//         />
+//       </div>
+//     );
+//   }
+// }
+ 
+// ReactDOM.render(
+//   <MyComponent />,
+//   document.getElementById('example')
+// );
+
+
+
+
+
+// class Hello extends React.Component {
+ 
+//  constructor(props) {
+//      super(props);
+//      this.state = {opacity: 1.0};
+//  }
+
+//  componentDidMount() {
+//    this.timer = setInterval(function () {
+//      var opacity = this.state.opacity;
+//      opacity -= .05;
+//      if (opacity < 0.1) {
+//        opacity = 1.0;
+//      }
+//      this.setState({
+//        opacity: opacity
+//      });
+//    }.bind(this), 100);
+//  }
+
+//  render () {
+//    return (
+//      <div style={{opacity: this.state.opacity}}>
+//        Hello {this.props.name}
+//      </div>
+//    );
+//  }
+// }
+
+// ReactDOM.render(
+//  <Hello name="world"/>,
+//  document.body
+// );
+
+
+
+// class Button extends React.Component {
+//   constructor(props) {
+//       super(props);
+//       this.state = {data: 0};
+//       this.setNewNumber = this.setNewNumber.bind(this);
+//   }
+  
+//   setNewNumber() {
+//     this.setState({data: this.state.data + 1})
+//   }
+//   render() {
+//       return (
+//          <div>
+//             <button onClick = {this.setNewNumber}>INCREMENT</button>
+//             <Content myNumber = {this.state.data}></Content>
+//          </div>
+//       );
+//     }
+// }
+ 
+ 
+// class Content extends React.Component {
+//   componentWillMount() {
+//       console.log('Component WILL MOUNT!')
+//   }
+//   componentDidMount() {
+//        console.log('Component DID MOUNT!')
+//   }
+//   componentWillReceiveProps(newProps) {
+//         console.log('Component WILL RECEIVE PROPS!')
+//   }
+//   shouldComponentUpdate(newProps, newState) {
+//         return true;
+//   }
+//   componentWillUpdate(nextProps, nextState) {
+//         console.log('Component WILL UPDATE!');
+//   }
+//   componentDidUpdate(prevProps, prevState) {
+//         console.log('Component DID UPDATE!')
+//   }
+//   componentWillUnmount() {
+//          console.log('Component WILL UNMOUNT!')
+//   }
+ 
+//     render() {
+//       return (
+//         <div>
+//           <h3>{this.props.myNumber}</h3>
+//         </div>
+//       );
+//     }
+// }
+// ReactDOM.render(
+//    <div>
+//       <Button />
+//    </div>,
+//   document.getElementById('example')
+// );
+
+
+class UserGist extends React.Component {
+  constructor(props) {
+      super(props);
+      this.state = {username: '', lastGistUrl: ''};
+  }
+ 
+ 
+  componentDidMount() {
+    this.serverRequest = $.get(this.props.source, function (result) {
+      var lastGist = result[0];
+      this.setState({
+        username: lastGist.owner.login,
+        lastGistUrl: lastGist.html_url
+      });
+    }.bind(this));
+  }
+ 
+  componentWillUnmount() {
+    this.serverRequest.abort();
+  }
+ 
+  render() {
+    return (
+      <div>
+        {this.state.username} 用户最新的 Gist 共享地址：
+        <a href={this.state.lastGistUrl}>{this.state.lastGistUrl}</a>
+      </div>
+    );
+  }
+}
+ 
+ReactDOM.render(
+  <UserGist source="https://https://github.com/ratafee1/Jquery_practice" />,
+  document.getElementById('example')
+);
+
+
+</script>
+ 
+
+
+
+ 
+</body>
+</html>
